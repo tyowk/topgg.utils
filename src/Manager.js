@@ -44,23 +44,19 @@ exports.Manager = class Manager extends REST {
                             message: 'Bad Request'
                         });
                     };
-                    let user;
-                    if (this.token) user = await this.getUser(vote.user);
                     if (vote.bot) {
                         this.emit('botVote', {
-                            user: user ? user : null,
+                            manager: 'topgg.utils',
                             userId: vote.user,
                             botId: vote.bot,
-                            type: vote.type,
-                            query: vote.query
+                            ...vote
                         });
                     } else if (vote.guild) {
                         this.emit('guildVote', {
-                            user: user ? user : null,
+                            manager: 'topgg.utils',
                             guildId: vote.guild,
                             userId: vote.user,
-                            type: vote.type,
-                            query: vote.query
+                            ...vote
                         });
                     } else {
                         return res.status(400).json({
