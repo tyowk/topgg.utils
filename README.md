@@ -8,7 +8,7 @@ Topgg Utils is a Node.js API wrapper designed for interacting with the Top.gg AP
 
 - **Data Fetching:** Retrieve detailed bot, user, and voting data from Top.gg with ease.
 - **Statistics Management:** Effortlessly post and update bot statistics to Top.gg.
-- **Webhook Support:** Easily manage real-time vote events through webhooks.
+- **Webhook Support:** Easily manage vote events through webhooks.
 - **Event-Driven Architecture:** Respond to various events like bot votes, guild votes, and error handling in a streamlined manner.
 
 ---
@@ -194,6 +194,6 @@ To contribute, fork the repository, make changes, and submit a pull request for 
 
 ## **Conclusion**
 
-Topgg Utils provides a simple and efficient way to interact with the Top.gg API for managing bot statistics, handling votes, and reacting to events. Whether you are updating your bot’s statistics or managing real-time vote events, Topgg Utils makes it easier to integrate Top.gg functionalities into your Node.js application.
+Topgg Utils provides a simple and efficient way to interact with the Top.gg API for managing bot statistics, handling votes, and reacting to events. Whether you are updating your bot’s statistics or managing vote events, Topgg Utils makes it easier to integrate Top.gg functionalities into your Node.js application.
 
-For more detailed documentation and examples, refer to the [official Topgg API documentation](https://docs.top.gg/docs).
+For more detailed documentation and examples, refer to the official [Topgg API documentation](https://docs.top.gg/docs).
