@@ -88,8 +88,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setToken(token) {
-        if (typeof token !== 'string')
-            throw new Error('');
+        if (typeof token !== 'string') {
+            throw new Error('API Token is must be a string.');
+        };
         
         this.token = token;
         return this;
@@ -101,8 +102,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setPort(port) {
-        if (isNaN(port))
-            throw new Error('');
+        if (isNaN(port)) {
+            throw new Error('Port is must be a number. Please give a valid number.');
+        };
         
         this.port = port;
         return this;
@@ -114,8 +116,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setEndpoint(endpoint) {
-        if (typeof endpoint !== 'string')
-            throw new Error('');
+        if (typeof endpoint !== 'string') {
+            throw new Error('Webhook endpoint is must me a string');
+        };
         
         this.endpoint = endpoint;
         return this;
@@ -127,8 +130,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setAuthorization(authorization) {
-        if (typeof authorization !== 'string')
-            throw new Error('');
+        if (typeof authorization !== 'string') {
+            throw new Error('Authorization secret is must be a string');
+        };
         
         this.authorization = authorization;
         return this;
