@@ -35,7 +35,7 @@ const { Manager } = require('topgg.utils');
 
 ---
 
-### **Example: Creating a Bot Manager Instance**
+### **Creating a Manager Instance**
 
 To interact with the Top.gg API, you need to initialize a `Manager` instance with your API token and webhook configuration.
 
