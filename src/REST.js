@@ -82,6 +82,29 @@ exports.REST = class REST extends EventEmitter {
     };
 
     /**
+     * Retrieves a user from the top.gg API by ID.
+     * @param {string} id - The ID of the user to retrieve.
+     * @returns {Promise<object|null>} The user data or null if the request fails.
+     */
+    async getUser(id) {
+        if (!this.token) throw new Error('API token is required. Please provide a valid token');
+        try {
+            const res = await axios.get(`https://top.gg/api/users/${id}`, {
+                timeout: 10000,
+                headers: {
+                    'Authorization': this.token,
+                    'User-Agent': 'topgg.utils'
+                }
+            });
+            if (res.status !== 200) return null
+            return res.data;
+        } catch (error) {
+            this.emit('error', error, this);
+            return null;
+        }
+    };
+
+    /**
      * Retrieves the votes for a bot from the top.gg API.
      * @param {string} id - The ID of the bot to retrieve votes for.
      * @returns {Promise<object|null>} The vote data or null if the request fails.
