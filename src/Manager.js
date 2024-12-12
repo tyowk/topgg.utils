@@ -58,7 +58,6 @@ exports.Manager = class Manager extends REST {
                             user: user ? user : null,
                             guildId: vote.guild,
                             userId: vote.user,
-                            type: vote.type,
                             ...vote
                         });
                     } else {
