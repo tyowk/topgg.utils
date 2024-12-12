@@ -18,8 +18,13 @@ exports.REST = class REST extends EventEmitter {
         super();
         this.token = token;
         if (webhook) {
-            if (!webhook.authorization) throw new Error('Webhook authorization token is required.');
-            if (!webhook.port || typeof webhook.port !== 'number' || webhook.port <= 0) throw new Error('Webhook port must be a positive integer.');
+            if (!webhook.authorization) {
+                throw new Error('Webhook authorization token is required.');
+            };
+            if (!webhook.port || typeof webhook.port !== 'number' || webhook.port <= 0) {
+                throw new Error('Webhook port must be a positive integer.');
+            };
+            
             this.authorization = webhook.authorization;
             this.endpoint = webhook.endpoint || '/webhook';
             this.port = webhook.port;
