@@ -1,5 +1,7 @@
 /// <reference types="events" />
 
+import { EventEmitter } from 'events';
+
 /**
  * Enum for different types of events.
  */
@@ -180,7 +182,7 @@ interface Manager extends REST {
 
 declare module './index' {
     export { Events };
-    export class REST implements REST {}
+    export class REST extends EventEmitter implements REST {}
     export class Manager extends REST implements Manager {}
 }
 
@@ -189,7 +191,7 @@ declare module './Manager' {
 }
 
 declare module './REST' {
-    export class REST implements REST {}
+    export class REST extends EventEmitter implements REST {}
 }
 
 declare module './Events' {
