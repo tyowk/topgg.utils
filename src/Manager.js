@@ -28,7 +28,7 @@ exports.Manager = class Manager extends REST {
         try {
             app.use(bodyParser.json());
             app.listen(this.port, () => this.emit('ready', this));
-            app.post(this.endpoint, (req, res) => {
+            app.post(this.endpoint, async (req, res) => {
                 try {
                     const authHeader = req.header('Authorization');
                     if (!authHeader || authHeader !== this.authorization) {
@@ -37,25 +37,29 @@ exports.Manager = class Manager extends REST {
                             message: 'Unauthorized'
                         });
                     };
-                    const vote = req.body;
+                    let vote = req.body;
                     if (!vote) {
                         return res.status(400).json({
                             code: 400,
                             message: 'Bad Request'
                         });
                     };
+                    let user;
+                    if (this.token) user = await this.getUser(vote.user);
                     if (vote.bot) {
                         this.emit('botVote', {
+                            user: user ? user : null,
                             userId: vote.user,
                             botId: vote.bot,
-                            isWeekend: vote.isWeekend,
-                            type: vote.type
+                            ...vote
                         });
                     } else if (vote.guild) {
                         this.emit('guildVote', {
+                            user: user ? user : null,
                             guildId: vote.guild,
                             userId: vote.user,
-                            type: vote.type
+                            type: vote.type,
+                            ...vote
                         });
                     } else {
                         return res.status(400).json({
