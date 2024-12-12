@@ -16,7 +16,9 @@ exports.Manager = class Manager extends REST {
     */
     constructor({ token, webhook }) {
         super(token, webhook);
-        if (webhook) this.#startEndpoint();
+        if (webhook && webhook.port && typeof webhook === 'object') {
+            this.#startEndpoint();
+        };
     }
 
     /**
