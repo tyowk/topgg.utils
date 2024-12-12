@@ -1,6 +1,6 @@
 {
     "name": "topgg.utils",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "An unofficial top.gg node module to interact with top.gg API.",
     "types": "src/index.d.ts",
     "main": "src/index.js",
