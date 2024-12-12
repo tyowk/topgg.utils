@@ -51,14 +51,16 @@ exports.Manager = class Manager extends REST {
                             user: user ? user : null,
                             userId: vote.user,
                             botId: vote.bot,
-                            ...vote
+                            type: vote.type,
+                            query: vote.query
                         });
                     } else if (vote.guild) {
                         this.emit('guildVote', {
                             user: user ? user : null,
                             guildId: vote.guild,
                             userId: vote.user,
-                            ...vote
+                            type: vote.type,
+                            query: vote.query
                         });
                     } else {
                         return res.status(400).json({
