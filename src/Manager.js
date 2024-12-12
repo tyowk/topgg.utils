@@ -13,9 +13,6 @@ exports.Manager = class Manager extends REST {
     * @param {Object} options - Options for the constructor.
     * @param {string} options.token - Token for authentication.
     * @param {Object} [options.webhook] - Webhook configuration.
-    * @param {string} options.webhook.authorization - Authorization token for the webhook.
-    * @param {number} options.webhook.port - Port number for the webhook.
-    * @param {string} [options.webhook.endpoint='/webhook'] - Endpoint for the webhook.
     */
     constructor({ token, webhook }) {
         super(token, webhook);
