@@ -88,6 +88,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setToken(token) {
+        if (typeof token !== 'string')
+            throw new Error('');
+        
         this.token = token;
         return this;
     }
@@ -98,6 +101,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setPort(port) {
+        if (isNaN(port))
+            throw new Error('');
+        
         this.port = port;
         return this;
     }
@@ -108,6 +114,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setEndpoint(endpoint) {
+        if (typeof endpoint !== 'string')
+            throw new Error('');
+        
         this.endpoint = endpoint;
         return this;
     }
@@ -118,6 +127,9 @@ exports.Manager = class Manager extends REST {
      * @returns {Manager} The Manager instance.
      */
     setAuthorization(authorization) {
+        if (typeof authorization !== 'string')
+            throw new Error('');
+        
         this.authorization = authorization;
         return this;
     }
