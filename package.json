@@ -1,10 +1,42 @@
 {
     "name": "topgg.utils",
     "version": "1.0.0",
-    "description": "",
+    "description": "A package for integrating Lavalink with Aoi.js to enable music streaming in Discord bots.",
+    "type": "commonjs",
     "main": "src/index.js",
+    "keywords": [
+        "top.gg",
+        "topgg",
+        "dbl",
+        "webhook",
+        "api",
+        "wrapper"
+    ],
+    "author": "Tyowk <tyowk@outlook.com>",
+    "license": "MIT",
     "dependencies": {
-        "axios": "latest",
-        "express": "latest"
-    }
+        "axios": "",
+        "express": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tyowk/topgg.utils.git"
+    },
+    "funding": [{
+        "type": "individual",
+        "url": "https://trakteer.id/tyowk"
+    },{
+        "type": "patreon",
+        "url": "https://www.patreon.com/tyowk_official"
+    }],
+    "bugs": {
+        "url": "https://github.com/tyowk/topgg.utils/issues"
+    },
+    "homepage": "https://github.com/tyowk/topgg.utils",
+    "files": [
+        "src",
+        "README.md",
+        "LICENSE",
+        "package.json"
+    ]
 }
