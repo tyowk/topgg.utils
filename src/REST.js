@@ -49,7 +49,7 @@ exports.REST = class REST extends EventEmitter {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
                 }
-            });
+            }).catch(error => { this.emit('error', error, this); return null; });
             if (res.status !== 200) return null
             return res.data;
         } catch (error) {
@@ -72,7 +72,7 @@ exports.REST = class REST extends EventEmitter {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
                 }
-            });
+            }).catch(error => { this.emit('error', error, this); return null; });
             if (res.status !== 200) return null
             return res.data;
         } catch (error) {
@@ -95,7 +95,7 @@ exports.REST = class REST extends EventEmitter {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
                 }
-            });
+            }).catch(error => { this.emit('error', error, this); return null; });
             if (res.status !== 200) return null
             return res.data;
         } catch (error) {
@@ -118,7 +118,7 @@ exports.REST = class REST extends EventEmitter {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
                 }
-            });
+            }).catch(error => { this.emit('error', error, this); return null; });
             if (res.status !== 200) return null
             return res.data;
         } catch (error) {
@@ -141,7 +141,7 @@ exports.REST = class REST extends EventEmitter {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
                 }
-            });
+            }).catch(error => { this.emit('error', error, this) return null; });
             if (res.status !== 200) return null
             return res.data;
         } catch (error) {
@@ -165,7 +165,7 @@ exports.REST = class REST extends EventEmitter {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
                 }
-            });
+            }).catch(error => { this.emit('error', error, this); return null; });
             if (res.status !==  200) return null
             return res.data;
         } catch (error) {
@@ -196,7 +196,7 @@ exports.REST = class REST extends EventEmitter {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
                 }
-            });
+            }).catch(error => { this.emit('error', error, this); return false });
             if (res.status !== 200) return false;
             return true;
         } catch (error) {
