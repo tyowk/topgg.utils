@@ -161,7 +161,7 @@ exports.REST = class REST extends EventEmitter {
      * @param {string} userId - The ID of the user to check votes for.
      * @returns {Promise<object|null>} The vote data or null if the request fails.
      */
-    async checkUser (id, userId) {
+    async checkUser(id, userId) {
         if (!this.token) throw new Error('API token is required. Please provide a valid token');
         try {
             const res = await axios.get(`https://top.gg/api/bots/${id}/check?userId=${userId}`, {
