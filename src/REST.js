@@ -5,10 +5,14 @@ const EventEmitter = require('events');
  * REST class for interacting with the top.gg API.
  */
 exports.REST = class REST extends EventEmitter {
+    
     /**
      * Creates a new instance of the REST class.
      * @param {string} token - The API token for authentication.
-     * @param {object} webhook - Top.gg vote webhook configuration.
+     * @param {object} [webhook] - Top.gg vote webhook configuration.
+     * @param {string} [webhook.authorization] - Authorization token for the webhook.
+     * @param {number} [webhook.port] - Port number for the webhook.
+     * @param {string} [webhook.endpoint='/webhook'] - Endpoint for the webhook.
      */
     constructor(token, webhook) {
         super();
@@ -34,7 +38,7 @@ exports.REST = class REST extends EventEmitter {
         if (!this.token) throw new Error('API token is required. Please provide a valid token');
         try {
             const res = await axios.get('https://top.gg/api/bots', {
-                params: { limit, offset, sort, fields },
+                params: { limit: (limit > 500) ? 500 : limit, offset, sort, fields },
                 timeout: 10000,
                 headers: {
                     'Authorization': this.token,
