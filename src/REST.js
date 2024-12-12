@@ -45,6 +45,7 @@ exports.REST = class REST extends EventEmitter {
             const res = await axios.get('https://top.gg/api/bots', {
                 params: { limit: (limit > 500) ? 500 : limit, offset, sort, fields },
                 timeout: 10000,
+                validateStatus: () => true,
                 headers: {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
@@ -68,6 +69,7 @@ exports.REST = class REST extends EventEmitter {
         try {
             const res = await axios.get(`https://top.gg/api/bots/${id}`, {
                 timeout: 10000,
+                validateStatus: () => true,
                 headers: {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
@@ -91,6 +93,7 @@ exports.REST = class REST extends EventEmitter {
         try {
             const res = await axios.get(`https://top.gg/api/users/${id}`, {
                 timeout: 10000,
+                validateStatus: () => true,
                 headers: {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
@@ -114,6 +117,7 @@ exports.REST = class REST extends EventEmitter {
         try {
             const res = await axios.get(`https://top.gg/api/bots/${id}/votes`, {
                 timeout: 10000,
+                validateStatus: () => true,
                 headers: {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
@@ -137,6 +141,7 @@ exports.REST = class REST extends EventEmitter {
         try {
             const res = await axios.get(`https://top.gg/api/bots/${id}/stats`, {
                 timeout: 10000,
+                validateStatus: () => true,
                 headers: {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
@@ -161,6 +166,7 @@ exports.REST = class REST extends EventEmitter {
         try {
             const res = await axios.get(`https://top.gg/api/bots/${id}/check?userId=${userId}`, {
                 timeout: 10000,
+                validateStatus: () => true,
                 headers: {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
@@ -192,6 +198,7 @@ exports.REST = class REST extends EventEmitter {
                 shard_count,
             },{
                 timeout: 10000,
+                validateStatus: () => true,
                 headers: {
                     'Authorization': this.token,
                     'User-Agent': 'topgg.utils'
