@@ -71,8 +71,9 @@ interface Votes {
     avatar: string;
 }
 interface Stats {
-    server_count: number;
+    server_count: number[] | number;
     shards: number[] | undefined;
+    shard_id: number | undefined;
     shard_count: number | undefined;
 }
 interface Voted {
@@ -144,7 +145,7 @@ export declare class REST extends EventEmitter {
      * @param {number} stats.shard_count - The shard count.
      * @returns {Promise<boolean>} The false response if the request fails.
      */
-    postStats(id: string, { server_count, shards, shard_count }: Stats): Promise<boolean>;
+    postStats(id: string, stats: Stats): Promise<boolean>;
 }
 /**
  * Manager class for handling votes from the top.gg API.
