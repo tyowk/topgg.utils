@@ -75,6 +75,7 @@ interface Stats {
     server_count: number[] | number;
     shard_id: number | undefined;
     shard_count: number | undefined;
+    shards: number[] | undefined;
 }
 interface Voted {
     voted: number;
@@ -143,6 +144,7 @@ export declare class REST extends EventEmitter {
      * @param {number} stats.server_count - The server count.
      * @param {number} stats.shard_id - The ID of shard.
      * @param {number} stats.shard_count - The shard count.
+     * @param {number[]} stats.shards - The array of shards.
      * @returns {Promise<boolean>} The false response if the request fails.
      */
     postStats(id: string, stats: Stats): Promise<boolean>;
