@@ -185,7 +185,6 @@ exports.REST = class REST extends EventEmitter {
      * @param {string} id - The ID of the bot to post stats for.
      * @param {object} stats - The stats data to post.
      * @param {number} stats.server_count - The server count.
-     * @param {number} stats.shards - The number of shards.
      * @param {number} stats.shard_id - The ID of shard.
      * @param {number} stats.shard_count - The shard count.
      * @returns {Promise<boolean>} The false response if the request fails.
@@ -193,8 +192,14 @@ exports.REST = class REST extends EventEmitter {
     async postStats(id, stats = {}) {
         if (!this.token) throw new Error('API token is required. Please provide a valid token');
         try {
-            if (typeof stats !== 'object') return false;
-            const res = await axios.post(`https://top.gg/api/bots/${id}/stats`, stats ,{
+            if (typeof stats !== 'object' || !stats.serverCount && !stats.server_count)
+                throw new Error('Invalid body provided');
+            
+            const res = await axios.post(`https://top.gg/api/bots/${id}/stats`, {
+                server_count: stats.serverCount || stats.server_count,
+                shard_id: stats.shardId || stats.shard_id,
+                shard_count: stats.shardCount || stats.shard_count,
+            },{
                 timeout: 10000,
                 validateStatus: () => true,
                 headers: {
