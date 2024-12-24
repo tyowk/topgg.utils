@@ -7,7 +7,6 @@ const app = express();
  * Manager class for handling votes from the top.gg API.
  */
 exports.Manager = class Manager extends REST {
-    
     /**
     * Creates a new instance of the Manager class.
     * @param {Object} options - Options for the constructor.
@@ -16,6 +15,7 @@ exports.Manager = class Manager extends REST {
     */
     constructor({ token, webhook }) {
         super(token, webhook);
+        this.app = app;
         if (webhook && webhook.port && typeof webhook === 'object') {
             this.#startEndpoint();
         };
