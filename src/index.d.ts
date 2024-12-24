@@ -30,6 +30,7 @@ interface Bot {
     vanity: string;
     guilds: string[];
     owners: string[];
+    shards: number[];
     monthlyPoints: number;
     points: number;
     certifiedBot: boolean;
@@ -72,7 +73,6 @@ interface Votes {
 }
 interface Stats {
     server_count: number[] | number;
-    shards: number[] | undefined;
     shard_id: number | undefined;
     shard_count: number | undefined;
 }
@@ -141,7 +141,7 @@ export declare class REST extends EventEmitter {
      * @param {string} id - The ID of the bot to post stats for.
      * @param {object} stats - The stats data to post.
      * @param {number} stats.server_count - The server count.
-     * @param {number} stats.shards - The number of shards.
+     * @param {number} stats.shard_id - The ID of shard.
      * @param {number} stats.shard_count - The shard count.
      * @returns {Promise<boolean>} The false response if the request fails.
      */
@@ -151,7 +151,6 @@ export declare class REST extends EventEmitter {
  * Manager class for handling votes from the top.gg API.
  */
 export declare class Manager extends REST {
-    #private;
     private token;
     private authorization;
     private port;
