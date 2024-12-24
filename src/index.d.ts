@@ -155,6 +155,7 @@ export declare class Manager extends REST {
     private authorization;
     private port;
     private endpoint;
+    public app;
     /**
     * Creates a new instance of the Manager class.
     * @param {Object} options - Options for the constructor.
