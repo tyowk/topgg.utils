@@ -194,11 +194,16 @@ exports.REST = class REST extends EventEmitter {
         try {
             if (typeof stats !== 'object' || !stats.serverCount && !stats.server_count)
                 throw new Error('Invalid body provided');
+
+            const server_count = stats.serverCount || stats.server_count;
+            const shard_id = stats.shardId || stats.shard_id;
+            const shard_count = stats.shardCount || stats.shard_count;
+            if (server_count) throw new Error('Server count property is required');
             
             const res = await axios.post(`https://top.gg/api/bots/${id}/stats`, {
-                server_count: stats.serverCount || stats.server_count,
-                shard_id: stats.shardId || stats.shard_id,
-                shard_count: stats.shardCount || stats.shard_count,
+                server_count,
+                shard_id,
+                shard_count
             },{
                 timeout: 10000,
                 validateStatus: () => true,
