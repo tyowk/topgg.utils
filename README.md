@@ -91,7 +91,7 @@ To keep your bot's statistics up-to-date on Top.gg, use the `postStats` method. 
 async function updateBotStats(botId) {
     await manager.postStats(botId, {
         server_count: 100,        // Total number of servers
-        shards: [0, 1],           // Shard IDs (optional)
+        shard_id: 0,              // Shard ID
         shard_count: 2,           // Total number of shards
     });
 }
@@ -102,7 +102,7 @@ updateBotStats('YOUR_BOT_ID');
 
 In this example:
 - `server_count` is the total number of servers your bot is in.
-- `shards` is an array of shard IDs (if using sharding).
+- `shard_id` is an ID of shard (if using sharding).
 - `shard_count` is the total number of shards.
 
 ---
