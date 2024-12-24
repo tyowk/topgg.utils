@@ -187,6 +187,7 @@ exports.REST = class REST extends EventEmitter {
      * @param {number} stats.server_count - The server count.
      * @param {number} stats.shard_id - The ID of shard.
      * @param {number} stats.shard_count - The shard count.
+     * @param {number[]} stats.shards - The array of shards
      * @returns {Promise<boolean>} The false response if the request fails.
      */
     async postStats(id, stats = {}) {
@@ -198,7 +199,8 @@ exports.REST = class REST extends EventEmitter {
             const res = await axios.post(`https://top.gg/api/bots/${id}/stats`, {
                 server_count: stats.serverCount || stats.server_count,
                 shard_id: stats.shardId || stats.shard_id,
-                shard_count: stats.shardCount || stats.shard_count
+                shard_count: stats.shardCount || stats.shard_count,
+                shards: stats.shards
             },{
                 timeout: 10000,
                 validateStatus: () => true,
