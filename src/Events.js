@@ -7,23 +7,23 @@
  */
 
 exports.Events = {
-  /**
-   * Fired when the application is ready and initialized.
-   */
-  Ready: 'ready',
+    /**
+    * Fired when the application is ready and initialized.
+    */
+    Ready: 'ready',
+    
+    /**
+    * Fired when an error occurs within the application.
+    */
+    Error: 'error',
 
-  /**
-   * Fired when an error occurs within the application.
-   */
-  Error: 'error',
+    /**
+    * Fired when a bot receives a vote.
+    */
+    BotVote: 'botVote',
 
-  /**
-   * Fired when a bot receives a vote.
-   */
-  BotVote: 'botVote',
-
-  /**
-   * Fired when a guild receives a vote.
-   */
-  GuildVote: 'guildVote'
+    /**
+    * Fired when a guild receives a vote.
+    */
+    GuildVote: 'guildVote'
 };
